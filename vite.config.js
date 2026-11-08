@@ -3,6 +3,7 @@ import { ViteEjsPlugin } from "vite-plugin-ejs";
 import { resolve } from "path";
 
 export default defineConfig({
+  base: "./",
   plugins: [
     ViteEjsPlugin()
   ],
