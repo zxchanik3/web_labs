@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - TechSkill</title>
+</head>
+<body>
+
+  <%- include('src/partials/header.ejs') %>
+
+  <main class="main">
+    <div class="checkout">
+      <div class="checkout__container">
+        
+        <!-- Header Banner -->
+        <div class="checkout__header">
+          <div class="checkout__title-group">
+            <span class="checkout__subtitle" data-i18n="checkout.subtitle">SECURE TRANSACTION</span>
+            <h1 class="checkout__title" data-i18n="checkout.title">Complete Your Enrollment</h1>
+          </div>
+          <div class="checkout__security-badge">
+            <span data-i18n="checkout.security">256-Bit SSL Encrypted Connection</span>
+          </div>
+        </div>
+
+        <div class="checkout__content">
+          <!-- Left Column: Payment Form -->
+          <section class="checkout__form-section" aria-labelledby="payment-heading">
+            <form class="payment-form" action="#" method="POST">
+              <div class="payment-form__header">
+                <h2 id="payment-heading" class="payment-form__title" data-i18n="payment.title">Payment Details</h2>
+                <div class="payment-form__methods">
+                  <span>VISA</span>
+                  <span>MC</span>
+                  <span>AMEX</span>
+                </div>
+              </div>
+
+              <div class="payment-form__group">
+                <label for="fullName" class="payment-form__label" data-i18n="payment.fullname">Full Name</label>
+                <input type="text" id="fullName" name="fullName" class="payment-form__input" placeholder="Alex Mercer" required>
+              </div>
+
+              <div class="payment-form__group">
+                <label for="email" class="payment-form__label" data-i18n="payment.email">Email Address</label>
+                <input type="email" id="email" name="email" class="payment-form__input" placeholder="alex.mercer@example.com" required>
+              </div>
+
+              <div class="payment-form__group">
+                <label for="cardNumber" class="payment-form__label" data-i18n="payment.card_number">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" class="payment-form__input" placeholder="4532 .... .... 8920" required>
+              </div>
+
+              <div class="payment-form__row">
+                <div class="payment-form__group">
+                  <label for="expDate" class="payment-form__label" data-i18n="payment.exp_date">Expiration Date</label>
+                  <input type="text" id="expDate" name="expDate" class="payment-form__input" placeholder="MM/YY" required>
+                </div>
+                <div class="payment-form__group">
+                  <label for="cvc" class="payment-form__label" data-i18n="payment.cvc">CVC / CVV</label>
+                  <input type="password" id="cvc" name="cvc" class="payment-form__input" placeholder="..." maxlength="4" required>
+                </div>
+              </div>
+
+              <div class="payment-form__checkbox-group">
+                <label class="payment-form__checkbox-label">
+                  <input type="checkbox" name="terms" class="payment-form__checkbox" required>
+                  <span data-i18n="payment.terms">I agree to the Terms of Service and immediate course access policy.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="payment-form__submit" data-i18n="payment.submit">Confirm Order &rarr;</button>
+            </form>
+          </section>
+
+          <!-- Right Column: Order Summary -->
+          <aside class="checkout__summary-section" aria-label="Order Summary">
+            <div class="order-summary">
+              <h2 class="order-summary__title" data-i18n="summary.title">Order Summary</h2>
+
+              <div class="order-summary__item">
+                <picture class="order-summary__media">
+                  <source srcset="https://placehold.co/80x60/0b1326/white.webp?text=Course" type="image/webp">
+                  <img src="https://placehold.co/80x60/0b1326/white.jpg" alt="Frontend Web Development" class="order-summary__img" loading="lazy">
+                </picture>
+                <div class="order-summary__details">
+                  <span class="order-summary__badge">TECHSKILL CERTIFICATION</span>
+                  <h3 class="order-summary__name">Frontend Web Development</h3>
+                  <p class="order-summary__meta">Lifetime Access &middot; 42 Modules</p>
+                </div>
+              </div>
+
+              <div class="order-summary__breakdown">
+                <div class="order-summary__row">
+                  <span data-i18n="summary.price">Course Price</span>
+                  <span>$199.00</span>
+                </div>
+                <div class="order-summary__row order-summary__row--discount">
+                  <span data-i18n="summary.discount">Seasonal Discount</span>
+                  <span>-$150.00</span>
+                </div>
+                <div class="order-summary__row">
+                  <span data-i18n="summary.taxes">Taxes &amp; Fees</span>
+                  <span>$0.00</span>
+                </div>
+              </div>
+
+              <div class="order-summary__total">
+                <span data-i18n="summary.total">Total Due</span>
+                <span class="order-summary__total-price">$49</span>
+              </div>
+
+              <ul class="order-summary__features">
+                <li>Instant access to all video lessons &amp; labs</li>
+                <li>Downloadable code repositories &amp; assets</li>
+                <li>Verified completion certificate</li>
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('src/partials/footer.ejs') %>
+
+</body>
+</html>

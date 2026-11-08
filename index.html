@@ -1,23 +1,153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Labs Starter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechSkill - IT Education Redefined</title>
 </head>
 <body>
-  <header class="u-header">
-    <nav class="u-nav">
-      <a href="#" class="u-logo">MySite</a>
-      <ul class="u-menu">
-        <li><a href="#/home">Home</a></li>
-        <li><a href="#/list">List</a></li>
-        <li><a href="#/about">About</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main id="app"></main>
-  <footer class="u-footer">© 2025</footer>
-  <script type="module" src="/src/js/main.js"></script>
+
+  <%- include('src/partials/header.ejs') %>
+
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero__container">
+        <span class="hero__badge" data-i18n="hero.badge">IT EDUCATION REDEFINED</span>
+        <h1 class="hero__title" data-i18n="hero.title">Learn Web Development</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          Master practical IT skills with expert-led courses.
+        </p>
+        <a href="courses.html" class="hero__button" data-i18n="hero.cta">Explore Courses</a>
+      </div>
+    </section>
+
+    <!-- Top Categories Section -->
+    <section class="categories">
+      <div class="categories__container">
+        <div class="categories__header">
+          <h2 class="categories__title" data-i18n="categories.title">Top Categories</h2>
+          <span class="categories__count" data-i18n="categories.count">04 SPECIALIZATIONS</span>
+        </div>
+
+        <ul class="categories__list">
+          <!-- Category 1: Web Dev -->
+          <li class="categories__item">
+            <article class="category-card">
+              <h3 class="category-card__title">Web Dev</h3>
+              <p class="category-card__desc">Frontend, Backend & Fullstack systems architecture.</p>
+            </article>
+          </li>
+          <!-- Category 2: Data Science -->
+          <li class="categories__item">
+            <article class="category-card">
+              <h3 class="category-card__title">Data Science</h3>
+              <p class="category-card__desc">Machine learning, python analytics & neural networks.</p>
+            </article>
+          </li>
+          <!-- Category 3: DevOps -->
+          <li class="categories__item">
+            <article class="category-card">
+              <h3 class="category-card__title">DevOps</h3>
+              <p class="category-card__desc">Docker, Kubernetes, CI/CD pipelines & cloud scale.</p>
+            </article>
+          </li>
+          <!-- Category 4: Mobile -->
+          <li class="categories__item">
+            <article class="category-card">
+              <h3 class="category-card__title">Mobile</h3>
+              <p class="category-card__desc">Cross-platform mobile apps with Flutter & React Native.</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Popular Courses Section (Schema.org included) -->
+    <section class="popular">
+      <div class="popular__container">
+        <div class="popular__header">
+          <h2 class="popular__title" data-i18n="popular.title">Popular Courses</h2>
+          <a href="courses.html" class="popular__link" data-i18n="popular.view_all">View All Courses &rarr;</a>
+        </div>
+
+        <div class="popular__grid">
+          
+          <!-- Course Card 1 -->
+          <article class="course-card" itemscope itemtype="https://schema.org/Course">
+            <picture class="course-card__media">
+              <source srcset="https://placehold.co/400x250/0b1326/white.webp?text=Web+Architecture" type="image/webp">
+              <img src="https://placehold.co/400x250/0b1326/white.jpg" alt="Full-Stack Web Architecture preview" class="course-card__img" itemprop="image" loading="lazy">
+            </picture>
+            <div class="course-card__body">
+              <span class="course-card__level">ADVANCED</span>
+              <h3 class="course-card__title" itemprop="name">Full-Stack Web Architecture</h3>
+              <p class="course-card__instructor" itemprop="provider" itemscope itemtype="https://schema.org/Person">
+                Instructor: <span itemprop="name">Sarah Jenkins</span>
+              </p>
+              <div class="course-card__footer">
+                <span class="course-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <meta itemprop="price" content="49">
+                  <meta itemprop="priceCurrency" content="USD">
+                  $49
+                </span>
+                <a href="course-details.html" class="course-card__button" data-i18n="courses.view">View Course</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Course Card 2 -->
+          <article class="course-card" itemscope itemtype="https://schema.org/Course">
+            <picture class="course-card__media">
+              <source srcset="https://placehold.co/400x250/0b1326/white.webp?text=Data+Science" type="image/webp">
+              <img src="https://placehold.co/400x250/0b1326/white.jpg" alt="Data Science & Python Mastery preview" class="course-card__img" itemprop="image" loading="lazy">
+            </picture>
+            <div class="course-card__body">
+              <span class="course-card__level">INTERMEDIATE</span>
+              <h3 class="course-card__title" itemprop="name">Data Science & Python Mastery</h3>
+              <p class="course-card__instructor" itemprop="provider" itemscope itemtype="https://schema.org/Person">
+                Instructor: <span itemprop="name">Alex Rivera</span>
+              </p>
+              <div class="course-card__footer">
+                <span class="course-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <meta itemprop="price" content="49">
+                  <meta itemprop="priceCurrency" content="USD">
+                  $49
+                </span>
+                <a href="course-details.html" class="course-card__button" data-i18n="courses.view">View Course</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Course Card 3 -->
+          <article class="course-card" itemscope itemtype="https://schema.org/Course">
+            <picture class="course-card__media">
+              <source srcset="https://placehold.co/400x250/0b1326/white.webp?text=DevOps" type="image/webp">
+              <img src="https://placehold.co/400x250/0b1326/white.jpg" alt="Cloud DevOps & Containers preview" class="course-card__img" itemprop="image" loading="lazy">
+            </picture>
+            <div class="course-card__body">
+              <span class="course-card__level">BEGINNER</span>
+              <h3 class="course-card__title" itemprop="name">Cloud DevOps & Containers</h3>
+              <p class="course-card__instructor" itemprop="provider" itemscope itemtype="https://schema.org/Person">
+                Instructor: <span itemprop="name">Marcus Vance</span>
+              </p>
+              <div class="course-card__footer">
+                <span class="course-card__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <meta itemprop="price" content="49">
+                  <meta itemprop="priceCurrency" content="USD">
+                  $49
+                </span>
+                <a href="course-details.html" class="course-card__button" data-i18n="courses.view">View Course</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('src/partials/footer.ejs') %>
+
 </body>
 </html>
