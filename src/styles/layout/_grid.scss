@@ -1,4 +1,31 @@
-// _grid.scss
-@use "../abstracts/mixins" as *;
+@use '../abstracts' as *;
 
-.container { @include container(); }
+.container {
+  @include container();
+}
+
+.row {
+  @include grid-row($grid-gutter);
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include grid-col($i, $grid-columns, $grid-gutter);
+  }
+}
+
+@include respond-to(tablet) {
+  @for $i from 1 through $grid-columns {
+    .col-md-#{$i} {
+      @include grid-col($i, $grid-columns, $grid-gutter);
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  @for $i from 1 through $grid-columns {
+    .col-lg-#{$i} {
+      @include grid-col($i, $grid-columns, $grid-gutter);
+    }
+  }
+}

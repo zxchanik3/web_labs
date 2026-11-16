@@ -1,23 +1,81 @@
-// _home.scss
-@use "../abstracts/mixins" as *;
+@use '../abstracts' as *;
 
-.home {
-  @include container();
-  padding-block: 24px;
+.hero {
+  padding-block: rem(48) rem(40);
+  border-bottom: 1px solid $color-border;
+  background: radial-gradient(
+    circle at top center,
+    color-mix-tone($color-primary, $color-bg-main, 12%) 0%,
+    $color-bg-main 70%
+  );
 
-  &__title { margin-bottom: 16px; }
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    @include respond(md) { grid-template-columns: repeat(2, 1fr); }
-    @include respond(lg) { grid-template-columns: repeat(3, 1fr); }
+  @include respond-to(desktop) {
+    padding-block: rem(80) rem(64);
+  }
+
+  &__container {
+    @include container();
+    @include flex(column, center, center, rem(20));
+    text-align: center;
+  }
+
+  &__title {
+    max-width: rem(780);
+    color: $color-text-primary;
+  }
+
+  &__subtitle {
+    max-width: rem(620);
+    @include typography(16, 400, 1.6);
+
+    @include respond-to(tablet) {
+      @include typography(18, 400, 1.6);
+    }
   }
 }
 
-.card {
-  padding: 16px;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 8px;
-  background: rgba(255,255,255,.02);
+.categories,
+.popular {
+  padding-block: rem(40);
+
+  @include respond-to(desktop) {
+    padding-block: rem(64);
+  }
+
+  &__container {
+    @include container();
+    @include flex(column, flex-start, stretch, rem(28));
+  }
+
+  &__header {
+    @include flex(column, space-between, flex-start, rem(12));
+
+    @include respond-to(tablet) {
+      @include flex(row, space-between, flex-end, rem(16));
+    }
+  }
+}
+
+.categories__grid {
+  @include grid(1, rem(16));
+
+  @include respond-to(tablet) {
+    @include grid(2, rem(20));
+  }
+
+  @include respond-to(desktop) {
+    @include grid(4, rem(24));
+  }
+}
+
+.popular__grid {
+  @include grid(1, rem(20));
+
+  @include respond-to(tablet) {
+    @include grid(2, rem(24));
+  }
+
+  @include respond-to(desktop) {
+    @include grid(3, rem(24));
+  }
 }

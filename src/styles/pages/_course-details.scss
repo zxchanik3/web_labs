@@ -1,0 +1,124 @@
+@use '../abstracts' as *;
+
+.course-details {
+  padding-block: rem(32) rem(64);
+
+  @include respond-to(desktop) {
+    padding-block: rem(48) rem(80);
+  }
+
+  &__container {
+    @include container();
+  }
+
+  &__layout {
+    @include grid(1, rem(28));
+
+    @include respond-to(desktop) {
+      grid-template-columns: minmax(0, 1fr) rem(360);
+      gap: rem(40);
+      align-items: start;
+    }
+  }
+
+  &__main {
+    @include flex(column, flex-start, stretch, rem(32));
+  }
+
+  &__header {
+    @include flex(column, flex-start, flex-start, rem(14));
+    padding-bottom: rem(24);
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__meta {
+    @include flex(row, flex-start, center, rem(16));
+    flex-wrap: wrap;
+    @include typography(13, 400, 1.4, $font-mono);
+    color: $color-text-muted;
+  }
+
+  &__sidebar {
+    @include respond-to(desktop) {
+      position: sticky;
+      top: rem(88);
+    }
+  }
+}
+
+.learning-outcomes {
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: rem(24);
+  @include flex(column, flex-start, stretch, rem(16));
+
+  &__list {
+    @include grid(1, rem(12));
+
+    @include respond-to(tablet) {
+      @include grid(2, rem(14));
+    }
+  }
+
+  &__item {
+    @include typography(14, 400, 1.5);
+    color: $color-text-secondary;
+    padding-left: rem(20);
+    position: relative;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $color-success;
+      font-weight: 700;
+    }
+  }
+}
+
+.curriculum {
+  @include flex(column, flex-start, stretch, rem(14));
+
+  details {
+    background-color: $color-bg-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
+    transition: border-color $transition-base;
+
+    &[open] {
+      border-color: $color-border-light;
+    }
+  }
+
+  summary {
+    @include flex(row, space-between, center, rem(12));
+    @include typography(15, 600, 1.4);
+    padding: rem(16) rem(20);
+    cursor: pointer;
+    color: $color-text-primary;
+    background-color: $color-bg-elevated;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: '+';
+      font-family: $font-mono;
+      color: $color-primary;
+      font-size: rem(18);
+    }
+  }
+
+  details[open] summary::after {
+    content: '−';
+  }
+
+  ul,
+  p {
+    padding: rem(16) rem(20);
+  }
+}

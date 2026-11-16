@@ -1,6 +1,42 @@
-// _typography.scss
-@use "../abstracts/functions" as *;
+@use '../abstracts' as *;
 
-h1 { font-size: rem(32); }
-h2 { font-size: rem(24); }
-p  { font-size: rem(16); line-height: 1.6; }
+h1 {
+  @include typography(28, 700, 1.2);
+
+  @include respond-to(tablet) {
+    @include typography(36, 700, 1.15);
+  }
+
+  @include respond-to(desktop) {
+    @include typography(44, 700, 1.15);
+  }
+}
+
+h2 {
+  @include typography(22, 600, 1.25);
+
+  @include respond-to(tablet) {
+    @include typography(26, 600, 1.25);
+  }
+
+  @include respond-to(desktop) {
+    @include typography(30, 600, 1.2);
+  }
+}
+
+h3 {
+  @include typography(18, 600, 1.35);
+
+  @include respond-to(desktop) {
+    @include typography(20, 600, 1.35);
+  }
+}
+
+p {
+  @include typography(15, 400, 1.6);
+  color: $color-text-secondary;
+}
+
+.text-mono {
+  font-family: $font-mono;
+}

@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+.enrollment {
+  padding-block: rem(32) rem(64);
+
+  @include respond-to(desktop) {
+    padding-block: rem(48) rem(80);
+  }
+
+  &__container {
+    @include container();
+    @include flex(column, flex-start, stretch, rem(28));
+  }
+
+  &__layout {
+    @include grid(1, rem(28));
+
+    @include respond-to(desktop) {
+      grid-template-columns: minmax(0, 1fr) rem(380);
+      gap: rem(40);
+      align-items: start;
+    }
+  }
+}
+
+.payment-form {
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: rem(24);
+  @include flex(column, flex-start, stretch, rem(20));
+
+  @include respond-to(tablet) {
+    padding: rem(32);
+  }
+
+  &__row {
+    @include grid(1, rem(16));
+
+    @include respond-to(tablet) {
+      @include grid(2, rem(16));
+    }
+  }
+}

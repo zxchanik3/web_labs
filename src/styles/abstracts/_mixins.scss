@@ -1,21 +1,66 @@
-// _mixins.scss
-@mixin container($max: 1200px) {
-  width: 100%;
-  max-width: $max;
-  margin-inline: auto;
-  padding-inline: 16px;
+@use 'variables' as *;
+@use 'functions' as *;
+
+// Breakpoints (Mobile-first: base is 360..390px)
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (min-width: $bp-mobile) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+  }
 }
 
-@mixin flex-center($gap: 8px) {
+// Flexbox helper
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
   display: flex;
-  align-items: center;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+// CSS Grid helper
+@mixin grid($columns: 1, $gap: rem(24)) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
   gap: $gap;
 }
 
-@mixin respond($breakpoint) {
-  @if $breakpoint == md {
-    @media (min-width: 768px) { @content; }
-  } @else if $breakpoint == lg {
-    @media (min-width: 1280px) { @content; }
-  }
+// Container mixin
+@mixin container($max-width: $container-max-width, $padding: rem($container-padding)) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: $padding;
+}
+
+// Typography mixin
+@mixin typography($size, $weight: 400, $line-height: 1.5, $family: $font-primary) {
+  font-family: $family;
+  font-size: rem($size);
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+// Bonus: Custom 12-column grid mixins with gutters
+@mixin grid-row($gutter: $grid-gutter) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: rem(-$gutter * 0.5);
+}
+
+@mixin grid-col($span: 12, $columns: $grid-columns, $gutter: $grid-gutter) {
+  flex: 0 0 calc(100% / #{$columns} * #{$span});
+  max-width: calc(100% / #{$columns} * #{$span});
+  padding-inline: rem($gutter * 0.5);
 }

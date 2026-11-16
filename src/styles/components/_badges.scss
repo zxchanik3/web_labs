@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+.badge {
+  @include typography(11, 600, 1.2, $font-mono);
+  display: inline-flex;
+  align-items: center;
+  padding: rem(4) rem(10);
+  border-radius: $radius-sm;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: color-mix-tone($color-primary, $color-bg-elevated, 15%);
+  color: $color-primary;
+  border: 1px solid color-mix-tone($color-primary, $color-border, 30%);
+
+  &--discount {
+    background-color: color-mix-tone($color-discount, $color-bg-elevated, 15%);
+    color: $color-discount;
+    border-color: color-mix-tone($color-discount, $color-border, 35%);
+  }
+
+  &--success {
+    background-color: color-mix-tone($color-success, $color-bg-elevated, 15%);
+    color: $color-success;
+    border-color: color-mix-tone($color-success, $color-border, 35%);
+  }
+}
+
+.course-card__level,
+.course-details__badge {
+  @extend .badge;
+}

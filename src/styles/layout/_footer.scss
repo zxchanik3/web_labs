@@ -1,4 +1,39 @@
-// _footer.scss
-@use "../abstracts/mixins" as *;
+@use '../abstracts' as *;
 
-.u-footer { @include container(); padding: 24px 0; border-top: 1px solid rgba(255,255,255,.1); margin-top: 40px; }
+.footer {
+  margin-top: auto;
+  border-top: 1px solid $color-border;
+  background-color: $color-bg-main;
+  padding-block: rem(24);
+
+  &__container {
+    @include container();
+    @include flex(column, center, center, rem(16));
+
+    @include respond-to(tablet) {
+      @include flex(row, space-between, center, rem(24));
+    }
+  }
+
+  &__copyright {
+    @include typography(13, 400, 1.4, $font-mono);
+    color: $color-text-muted;
+  }
+
+  &__list {
+    @include flex(row, center, center, rem(20));
+
+    @include respond-to(desktop) {
+      gap: rem(28);
+    }
+  }
+
+  &__link {
+    @include typography(13, 400, 1.4, $font-mono);
+    color: $color-text-secondary;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

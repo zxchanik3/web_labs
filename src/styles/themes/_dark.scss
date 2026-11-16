@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-main: #{$color-bg-main};
+  --bg-surface: #{$color-bg-surface};
+  --bg-elevated: #{$color-bg-elevated};
+  --color-primary: #{$color-primary};
+  --text-primary: #{$color-text-primary};
+  --text-secondary: #{$color-text-secondary};
+  --border-color: #{$color-border};
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-text-dark;
+}

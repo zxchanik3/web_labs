@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+%input-control {
+  width: 100%;
+  padding: rem(10) rem(14);
+  background-color: $color-bg-input;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-sm;
+  color: $color-text-primary;
+  @include typography(14, 400, 1.4);
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px color-mix-tone($color-primary, transparent, 20%);
+  }
+}
+
+.form-group,
+.payment-form__group {
+  @include flex(column, flex-start, stretch, rem(6));
+}
+
+.form-label,
+.payment-form__label {
+  @include typography(13, 500, 1.4);
+  color: $color-text-secondary;
+}
+
+.form-input,
+.form-select,
+.catalog__search-input,
+.payment-form__input {
+  @extend %input-control;
+}
+
+.form-checkbox,
+.filter-group__label {
+  @include flex(row, flex-start, center, rem(10));
+  @include typography(14, 400, 1.4);
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    width: rem(16);
+    height: rem(16);
+    accent-color: $color-primary;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}

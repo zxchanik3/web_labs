@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+// Spacing utilities
+@for $i from 1 through 4 {
+  .u-mt-#{$i} {
+    margin-top: rem($i * 8);
+  }
+
+  .u-mb-#{$i} {
+    margin-bottom: rem($i * 8);
+  }
+
+  .u-py-#{$i} {
+    padding-block: rem($i * 8);
+  }
+}
+
+// Visibility utilities
+.u-hidden {
+  display: none !important;
+}
+
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u-hide-mobile {
+  display: none;
+
+  @include respond-to(tablet) {
+    display: block;
+  }
+}
+
+.u-show-mobile-only {
+  display: block;
+
+  @include respond-to(tablet) {
+    display: none;
+  }
+}

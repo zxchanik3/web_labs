@@ -1,6 +1,15 @@
-// _functions.scss
-@use "sass:math";
+@use 'sass:math';
+@use 'sass:color';
 
+// Convert px to rem
 @function rem($px, $base: 16) {
-  @return math.div($px, $base) * 1rem;
+  @if math.is-unitless($px) {
+    @return math.div($px, $base) * 1rem;
+  }
+  @return math.div($px, $base * 1px) * 1rem;
+}
+
+// Mix two colors with a given percentage weight
+@function color-mix-tone($color-1, $color-2, $weight: 50%) {
+  @return color.mix($color-1, $color-2, $weight);
 }

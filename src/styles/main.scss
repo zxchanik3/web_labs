@@ -1,10 +1,29 @@
-// Main SCSS entry
-@use "abstracts/variables";
-@use "abstracts/functions";
-@use "abstracts/mixins";
-@use "base/reset";
-@use "base/typography";
-@use "layout/grid";
-@use "layout/header";
-@use "layout/footer";
-@use "pages/home";
+// 1. Vendors
+@use 'vendors/normalize';
+
+// 2. Base
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+@use 'base/utilities';
+@use 'base/print';
+
+// 3. Layout
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+
+// 4. Components
+@use 'components/buttons';
+@use 'components/badges';
+@use 'components/cards';
+@use 'components/forms';
+
+// 5. Pages
+@use 'pages/home';
+@use 'pages/courses';
+@use 'pages/course-details';
+@use 'pages/enrollment';
+
+// 6. Themes
+@use 'themes/dark';

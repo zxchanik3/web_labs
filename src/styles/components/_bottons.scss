@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+.btn {
+  @include flex(row, center, center, rem(8));
+  @include typography(14, 600, 1.2);
+  display: inline-flex;
+  padding: rem(10) rem(18);
+  border-radius: $radius-sm;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color $transition-base, color $transition-base,
+    border-color $transition-base, transform $transition-base;
+
+  &:hover {
+    transform: translateY(rem(-1));
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-text-dark;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: $color-border-light;
+    color: $color-text-primary;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  &--sm {
+    @include typography(13, 600, 1.2);
+    padding: rem(8) rem(14);
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+// Binding BEM component buttons to base styles without duplication
+.hero__button,
+.tuition-card__button,
+.payment-form__submit {
+  @extend .btn;
+  @extend .btn--primary;
+}
+
+.course-card__button {
+  @extend .btn;
+  @extend .btn--primary;
+  @extend .btn--sm;
+}
